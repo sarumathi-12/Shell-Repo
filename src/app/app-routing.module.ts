@@ -8,7 +8,7 @@ const routes: Routes = [ {
     loadChildren: () =>
       loadRemoteModule({
         type: 'module',
-        remoteEntry: environment.mfeUrls.debt,
+        remoteEntry: environment.debt,
         exposedModule: './DebtModule',
       }).then((m: { DebtModule: any; }) => m.DebtModule),
       data: {

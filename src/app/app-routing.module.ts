@@ -5,7 +5,9 @@ import { environment } from 'src/environments/environment';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 
-const routes: Routes = [ {
+const routes: Routes = [ 
+  { path: 'login', component: LoginComponent },
+  {
     path: 'debt',
     loadChildren: () =>
       loadRemoteModule({
@@ -18,8 +20,6 @@ const routes: Routes = [ {
       title: 'Debt',
     },
   },
-
-  { path: 'login', component: LoginComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: '**', redirectTo: 'login' },
  ];

@@ -29,13 +29,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    ToastrModule.forRoot({
-      timeOut: 3000,
-      positionClass: 'toast-top-right',
-      preventDuplicates: true,
-      progressBar: true,
-    }),
-  ],
+    ToastrModule.forRoot(), ],
   providers: [],
   bootstrap: [AppComponent]
 })

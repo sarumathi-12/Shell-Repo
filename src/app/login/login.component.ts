@@ -11,8 +11,8 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  loginForm: FormGroup;
-  hidePassword: boolean = true;
+  public loginForm: FormGroup;
+  public hidePassword: boolean = true;
   private readonly mockUser = {
     email: 'saru12@gmail.com',
     password: 'Password@123',
@@ -34,11 +34,11 @@ export class LoginComponent {
     });
   }
 
-  togglePasswordVisibility(): void {
+  public togglePasswordVisibility(): void {
     this.hidePassword = !this.hidePassword;
   }
 
-  onSubmit() {
+  public onSubmit() {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
 

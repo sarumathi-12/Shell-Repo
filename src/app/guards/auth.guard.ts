@@ -14,11 +14,11 @@ export class AuthGuard implements CanActivate {
     private toastr: ToastrService
   ) {}
 
-  canActivate(): boolean | UrlTree {
+  public canActivate(): boolean | UrlTree {
     if (this.authService.isAuthenticated()) {
       return true;
     } else {
-      this.toastr.warning('Please log in first!', 'Access Denied');
+      this.toastr.warning('Please log in!', 'Access Denied');
       return this.router.parseUrl('/login');
     }
   }

@@ -8,11 +8,11 @@ export class AuthService {
 
   constructor() {}
 
-  login(): void {
+  public login(): void {
     localStorage.setItem(this.AUTH_KEY, 'true');
   }
 
-  isAuthenticated(): boolean {
+  public isAuthenticated(): boolean {
     return localStorage.getItem(this.AUTH_KEY) === 'true';
   }
 }

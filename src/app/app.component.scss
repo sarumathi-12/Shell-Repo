@@ -1,0 +1,144 @@
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0; 
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 0.5rem;       
+  height: 42px;           
+  z-index: 2000;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;             
+  position: relative;
+  height: 100%;
+}
+
+.logo-circle {
+  background-color: #6a1b9a;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.8rem;        
+  border-radius: 50%;
+  width: 28px;               
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  margin: auto 0;            
+}
+
+.logo-circle:hover {
+  transform: scale(1.05);
+}
+
+.arrow-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  width: 24px;
+  height: 24px;
+  line-height: 1;
+  transform: translateY(0);
+}
+
+.arrow-btn mat-icon {
+  font-size: 18px;         
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 105%;                 
+  right: 0;
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 0.5rem 0.75rem;  
+  width: 230px;              
+  z-index: 2100;
+  animation: fadeIn 0.2s ease-in-out;
+  font-size: 0.85rem;        
+}
+
+.user-info {
+  display: flex;
+  align-items: center;     
+  gap: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.user-logo {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #6a1b9a;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.85rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;           
+}
+
+.user-name {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #222;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;     
+}
+
+mat-divider {
+  border-top-color: #e0e0e0 !important;
+  margin: 0.25rem 0 !important;
+}
+
+.logout-btn {
+  width: 100%;
+  background: none !important;
+  color: #6a1b9a !important;
+  text-align: left !important;
+  font-weight: 500;
+  text-transform: none;
+  padding: 0.2rem 0.4rem !important;
+  border: none !important;
+  box-shadow: none !important;
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;      
+  border-radius: 4px;
+  transition: background 0.2s ease;
+  font-size: 0.82rem;
+}
+
+.logout-btn mat-icon {
+  font-size: 16px;
+  color: #6a1b9a !important;
+  margin-right: 0;   
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+:host ::ng-deep router-outlet {
+  display: block;
+  margin-top: 3rem; 
+}

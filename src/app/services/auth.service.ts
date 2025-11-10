@@ -6,12 +6,16 @@ import { Injectable } from '@angular/core';
 export class AuthService {
   private readonly AUTH_KEY = 'isAuthenticated';
 
-  constructor() {}
+  constructor() { }
 
   public login(): void {
     localStorage.setItem(this.AUTH_KEY, 'true');
   }
 
+  public logout(): void {
+    localStorage.removeItem(this.AUTH_KEY);
+  }
+  
   public isAuthenticated(): boolean {
     return localStorage.getItem(this.AUTH_KEY) === 'true';
   }

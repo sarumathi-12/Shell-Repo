@@ -13,11 +13,17 @@ import { MatButtonModule } from '@angular/material/button';
 import { LoginComponent } from './login/login.component';
 import { ToastrModule } from 'ngx-toastr';
 import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDividerModule } from '@angular/material/divider';
+import { OverlayModule } from '@angular/cdk/overlay';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
    BrowserModule,
@@ -29,6 +35,10 @@ import { MatIconModule } from '@angular/material/icon';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatMenuModule,
+    MatDialogModule,
+    MatDividerModule,
+    OverlayModule,
     ToastrModule.forRoot(), ],
   providers: [],
   bootstrap: [AppComponent]

@@ -42,17 +42,18 @@
   height: 1.2rem;
 }
 
-.mat-mdc-menu-panel.user-menu {
+.user-menu {
   border: 0.06rem solid #e6e6e6;
-  border-radius: 0.37rem;
+  border-radius: 0.37rem !important;
   box-shadow: 0 0.12rem 0.37rem rgba(0, 0, 0, 0.08); 
-  min-width: 12.5rem;
+  min-width: 12.5rem !important;
   padding: 0.3rem 0.4rem;
   font-size: 0.88rem;
-  background-color: #fff;
+  background-color: #fff !important;
+  opacity: 1 !important;
 }
 
-.user-menu .user-info {
+ .user-info {
   display: flex;
   align-items: center;
   gap: 0.4rem;
@@ -60,7 +61,7 @@
   padding: 0 0.25rem;
 }
 
-.user-menu .user-logo {
+.user-logo {
   width: 1.62rem;
   height: 1.62rem;
   border-radius: 50%;
@@ -73,7 +74,7 @@
   align-items: center;
 }
 
-.user-menu .user-name {
+ .user-name {
   font-weight: 700;
   font-size: 0.88rem;
   color: #222;

@@ -1,22 +1,19 @@
 .top-bar {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  inset: 0;
   background: #fff;
-  border-bottom: 1px solid #f0f0f0; 
+  border-bottom: 0.06rem solid #f0f0f0;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 0 0.5rem;       
-  height: 42px;           
+  padding: 0 0.5rem;
+  height: 2.6rem;
   z-index: 2000;
 }
 
 .logo-container {
   display: flex;
   align-items: center;
-  gap: 0.15rem;             
   position: relative;
   height: 100%;
 }
@@ -25,16 +22,14 @@
   background-color: #6a1b9a;
   color: #fff;
   font-weight: 700;
-  font-size: 0.8rem;        
+  font-size: 0.85rem;
   border-radius: 50%;
-  width: 28px;               
-  height: 28px;
+  width: 1.75rem;
+  height: 1.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: transform 0.2s ease;
-  margin: auto 0;            
 }
 
 .logo-circle:hover {
@@ -42,103 +37,93 @@
 }
 
 .arrow-btn {
+  padding: 0;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.mat-mdc-menu-panel.user-menu {
+  border: 0.06rem solid #e6e6e6;
+  border-radius: 0.37rem;
+  box-shadow: 0 0.12rem 0.37rem rgba(0, 0, 0, 0.08); 
+  min-width: 12.5rem;
+  padding: 0.3rem 0.4rem;
+  font-size: 0.88rem;
+  background-color: #fff;
+}
+
+.user-menu .user-info {
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 0;
-  margin: 0;
-  width: 24px;
-  height: 24px;
-  line-height: 1;
-  transform: translateY(0);
+  gap: 0.4rem;
+  height: 2rem;
+  padding: 0 0.25rem;
 }
 
-.arrow-btn mat-icon {
-  font-size: 18px;         
-}
-
-.dropdown-menu {
-  position: absolute;
-  top: 105%;                 
-  right: 0;
-  background: #fff;
-  border: 1px solid #e6e6e6;
-  border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  padding: 0.5rem 0.75rem;  
-  width: 230px;              
-  z-index: 2100;
-  animation: fadeIn 0.2s ease-in-out;
-  font-size: 0.85rem;        
-}
-
-.user-info {
-  display: flex;
-  align-items: center;     
-  gap: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-
-.user-logo {
-  width: 28px;
-  height: 28px;
+.user-menu .user-logo {
+  width: 1.62rem;
+  height: 1.62rem;
   border-radius: 50%;
   background-color: #6a1b9a;
   color: #fff;
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-shrink: 0;           
 }
 
-.user-name {
+.user-menu .user-name {
   font-weight: 700;
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   color: #222;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: flex;
-  align-items: center;     
 }
 
-mat-divider {
+.mat-divider {
   border-top-color: #e0e0e0 !important;
-  margin: 0.25rem 0 !important;
+  margin: 0.2rem 0 !important;
 }
 
-.logout-btn {
+.user-menu .logout-btn {
   width: 100%;
-  background: none !important;
-  color: #6a1b9a !important;
-  text-align: left !important;
+  color: #6a1b9a;
+  text-align: left;
   font-weight: 500;
-  text-transform: none;
-  padding: 0.2rem 0.4rem !important;
-  border: none !important;
-  box-shadow: none !important;
+  padding: 0 0.25rem;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 0.25rem;
+  font-size: 0.88rem;
+}
+
+.user-menu .logout-btn:hover {
+  background-color: transparent;
+  color: #6a1b9a;
+}
+
+.user-menu .logout-btn mat-icon {
+  font-size: 1rem;
+  color: #6a1b9a;
   display: flex;
   align-items: center;
-  gap: 0.1rem;      
-  border-radius: 4px;
-  transition: background 0.2s ease;
-  font-size: 0.82rem;
+  justify-content: center;
+  margin-right: 0;
 }
 
-.logout-btn mat-icon {
-  font-size: 16px;
-  color: #6a1b9a !important;
-  margin-right: 0;   
+.logout-dialog-panel {
+  position: fixed !important;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-4px); }
-  to { opacity: 1; transform: translateY(0); }
+.logout-dialog-panel .mat-mdc-dialog-surface,
+.logout-dialog-panel .mat-dialog-container {
+  padding: 1.5rem;
+  box-sizing: border-box;
 }
 
-:host ::ng-deep router-outlet {
-  display: block;
-  margin-top: 3rem; 
+.logout-dialog-panel .mat-mdc-raised-button.mat-warn {
+  background-color: #6a1b9a;
+  color: #fff;
 }

@@ -16,7 +16,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
-import { OverlayModule } from '@angular/cdk/overlay';
 
 
 
@@ -38,8 +37,8 @@ import { OverlayModule } from '@angular/cdk/overlay';
     MatMenuModule,
     MatDialogModule,
     MatDividerModule,
-    OverlayModule,
-    ToastrModule.forRoot(), ],
+    ToastrModule.forRoot(),
+  MatButtonModule ],
   providers: [],
   bootstrap: [AppComponent]
 })

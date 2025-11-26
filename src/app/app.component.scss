@@ -1,0 +1,129 @@
+.top-bar {
+  inset: 0;
+  background: #fff;
+  border-bottom: 0.06rem solid #f0f0f0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 0.5rem;
+  height: 2.6rem;
+  z-index: 2000;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 100%;
+}
+
+.logo-circle {
+  background-color: #6a1b9a;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  border-radius: 50%;
+  width: 1.75rem;
+  height: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.logo-circle:hover {
+  transform: scale(1.05);
+}
+
+.arrow-btn {
+  padding: 0;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.user-menu {
+  border: 0.06rem solid #e6e6e6;
+  border-radius: 0.37rem !important;
+  box-shadow: 0 0.12rem 0.37rem rgba(0, 0, 0, 0.08); 
+  min-width: 12.5rem !important;
+  padding: 0.3rem 0.4rem;
+  font-size: 0.88rem;
+  background-color: #fff !important;
+  opacity: 1 !important;
+}
+
+ .user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  height: 2rem;
+  padding: 0 0.25rem;
+}
+
+.user-logo {
+  width: 1.62rem;
+  height: 1.62rem;
+  border-radius: 50%;
+  background-color: #6a1b9a;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.82rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ .user-name {
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: #222;
+}
+
+.mat-divider {
+  border-top-color: #e0e0e0 !important;
+  margin: 0.2rem 0 !important;
+}
+
+.user-menu .logout-btn {
+  width: 100%;
+  color: #6a1b9a;
+  text-align: left;
+  font-weight: 500;
+  padding: 0 0.25rem;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 0.25rem;
+  font-size: 0.88rem;
+}
+
+.user-menu .logout-btn:hover {
+  background-color: transparent;
+  color: #6a1b9a;
+}
+
+.user-menu .logout-btn mat-icon {
+  font-size: 1rem;
+  color: #6a1b9a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0;
+}
+
+.logout-dialog-panel {
+  position: fixed !important;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.logout-dialog-panel .mat-mdc-dialog-surface,
+.logout-dialog-panel .mat-dialog-container {
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+
+.logout-dialog-panel .mat-mdc-raised-button.mat-warn {
+  background-color: #6a1b9a;
+  color: #fff;
+}

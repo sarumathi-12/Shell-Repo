@@ -1,29 +1,101 @@
-import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { Router, NavigationEnd, RouterOutlet } from '@angular/router';
+import { AuthService } from './services/auth.service';
+import { TemplateRef } from '@angular/core';
+import { of, Subject } from 'rxjs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
 
 describe('AppComponent', () => {
-  beforeEach(() => TestBed.configureTestingModule({
-    imports: [RouterTestingModule],
-    declarations: [AppComponent]
-  }));
+    let component: AppComponent;
+    let fixture: ComponentFixture<AppComponent>;
+    let dialogSpy: jasmine.SpyObj<MatDialog>;
+    let routerSpy: jasmine.SpyObj<Router>;
+    let authServiceSpy: jasmine.SpyObj<AuthService>;
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
+    let dialogRefSpy: jasmine.SpyObj<MatDialogRef<any>>;
 
-  it(`should have as title 'shell'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('shell');
-  });
+    beforeEach(async () => {
+        dialogSpy = jasmine.createSpyObj('MatDialog', ['open', 'closeAll']);
+        routerSpy = jasmine.createSpyObj('Router', ['navigate'], { url: '/login' });
+        authServiceSpy = jasmine.createSpyObj('AuthService', ['logout']);
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('shell app is running!');
-  });
+        dialogRefSpy = jasmine.createSpyObj('MatDialogRef', ['afterClosed']);
+        dialogRefSpy.afterClosed.and.returnValue(of(true));  
+
+        dialogSpy.open.and.returnValue(dialogRefSpy);
+
+        await TestBed.configureTestingModule({
+            declarations: [AppComponent],
+            imports: [
+                MatDialogModule,
+                RouterOutlet,
+                MatMenuModule,
+                MatIconModule,
+                MatDividerModule,
+                BrowserAnimationsModule
+            ],
+
+            providers: [
+                { provide: MatDialog, useValue: dialogSpy },
+                { provide: Router, useValue: routerSpy },
+                { provide: AuthService, useValue: authServiceSpy }
+            ]
+        }).compileComponents();
+
+        fixture = TestBed.createComponent(AppComponent);
+        component = fixture.componentInstance;
+        component.logoutDialog = {} as TemplateRef<any>; 
+        fixture.detectChanges();
+    });
+
+    // ----------------------------------------------------
+    it('should create the component', () => {
+        expect(component).toBeTruthy();
+    });
+
+    // ----------------------------------------------------
+    describe('openLogoutDialog', () => {
+        it('should open logout dialog', () => {
+            component.openLogoutDialog();
+            expect(dialogSpy.open).toHaveBeenCalled();
+        });
+
+        it('should call logout() when dialog returns true', () => {
+            component.openLogoutDialog();
+            expect(authServiceSpy.logout).toHaveBeenCalled();
+            expect(routerSpy.navigate).toHaveBeenCalledWith(['/login']);
+        });
+    });
+
+    // ----------------------------------------------------
+    describe('closeDialog', () => {
+        it('should close all dialogs', () => {
+            component.closeDialog();
+            expect(dialogSpy.closeAll).toHaveBeenCalled();
+        });
+    });
+
+    // ----------------------------------------------------
+    describe('confirmLogout', () => {
+        it('should close dialogs and logout', () => {
+            component.confirmLogout();
+            expect(dialogSpy.closeAll).toHaveBeenCalled();
+            expect(authServiceSpy.logout).toHaveBeenCalled();
+            expect(routerSpy.navigate).toHaveBeenCalledWith(['/login']);
+        });
+    });
+
+    // ----------------------------------------------------
+    describe('logout', () => {
+        it('should call AuthService.logout and navigate to login', () => {
+            component.logout();
+            expect(authServiceSpy.logout).toHaveBeenCalled();
+            expect(routerSpy.navigate).toHaveBeenCalledWith(['/login']);
+        });
+    });
 });
